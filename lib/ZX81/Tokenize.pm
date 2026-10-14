@@ -165,6 +165,7 @@ sub encode_char {
 	elsif ($text =~ s/^\n//i)     { $bin = pack("C", 0x76); }
 	elsif ($text =~ s/^ //i)      { $bin = pack("C", 0x00); }
 	elsif ($text =~ s/^\"//i)     { $bin = pack("C", 0x0b); }
+	elsif ($text =~ s/^\#//i)     { $bin = pack("C", 0x0c); }
 	elsif ($text =~ s/^\$//i)     { $bin = pack("C", 0x0d); }
 	elsif ($text =~ s/^://i)      { $bin = pack("C", 0x0e); }
 	elsif ($text =~ s/^\?//i)     { $bin = pack("C", 0x0f); }
@@ -184,6 +185,7 @@ sub encode_char {
 	elsif ($text =~ s/^(\w)//i)   { $bin = pack("C", 0x26+ord(uc($1))-ord('A')); }
 	elsif ($text =~ s/^\% //i)    { $bin = pack("C", 0x80); }
 	elsif ($text =~ s/^\%\"//i)   { $bin = pack("C", 0x8b); }
+	elsif ($text =~ s/^\%\#//i)   { $bin = pack("C", 0x8c); }
 	elsif ($text =~ s/^\%\$//i)   { $bin = pack("C", 0x8d); }
 	elsif ($text =~ s/^\%://i)    { $bin = pack("C", 0x8e); }
 	elsif ($text =~ s/^\%\?//i)   { $bin = pack("C", 0x8f); }

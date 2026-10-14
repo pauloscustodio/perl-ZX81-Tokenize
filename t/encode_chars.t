@@ -63,6 +63,7 @@ for (0..0xff) {
 eq_or_dump_diff(encode_chars($text), $bin, "hex encoding");
 
 eq_or_dump_diff(encode_chars("\"".
+							 "#".
 							 "\$".
 							 ":".
 							 "?".
@@ -79,6 +80,7 @@ eq_or_dump_diff(encode_chars("\"".
 							 ",".
 							 "."),
 	pack("C*", 	0x0b,
+				0x0c,
 				0x0d,
 				0x0e,
 				0x0f,
@@ -97,6 +99,7 @@ eq_or_dump_diff(encode_chars("\"".
 	"punctuation");
 
 eq_or_dump_diff(encode_chars("%\"".
+							 "%#".
 							 "%\$".
 							 "%:".
 							 "%?".
@@ -113,6 +116,7 @@ eq_or_dump_diff(encode_chars("%\"".
 							 "%,".
 							 "%."),
 	pack("C*", 	0x80 + 0x0b,
+				0x80 + 0x0c,
 				0x80 + 0x0d,
 				0x80 + 0x0e,
 				0x80 + 0x0f,
