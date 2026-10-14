@@ -126,7 +126,7 @@ sub tokenize_basic {
 	my $bin = "";
 	$basic =~ s/\\\n/ /g;			# join continuation lines
 	for my $line (split(/\n/, $basic)) {
-		$line =~ s/#.*//;			# remove comments
+		$line =~ s/^\s*#.*//;		# remove comments
 		next unless $line =~ /\S/;	# ignore empty lines
 		
 		$bin .= tokenize_line($line);
