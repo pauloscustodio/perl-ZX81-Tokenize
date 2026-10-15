@@ -20,5 +20,10 @@ sub MY::postamble {
 # --- perltidy ---
 perltidy:
 \tfind lib -name '*.pm' -o -name '*.pl' -o -name '*.t' | xargs perltidy -b
+
+# --- readme ---
+readme:
+\tperl -MPod::Markdown -e "Pod::Markdown->new->filter(qw(lib/ZX81/Tokenize.pm))" > README.md
+
 END
 }
