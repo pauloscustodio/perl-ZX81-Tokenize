@@ -13,3 +13,12 @@ WriteMakefile(
         'ZX81'                  => 0.001,
     },
 );
+
+
+sub MY::postamble {
+    return <<'END' =~ s/^\\t/\t/grm;
+# --- perltidy ---
+perltidy:
+\tfind lib -name '*.pm' -o -name '*.pl' -o -name '*.t' | xargs perltidy -b
+END
+}
