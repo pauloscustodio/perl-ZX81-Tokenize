@@ -118,6 +118,12 @@ sub tokenize_line {
                 my $num_bin   = encode_float($num);
                 $bin .= $num_chars . pack( "C", 0x7E ) . $num_bin;
             }
+            elsif ( $line =~ s/^(\w+)//i ) {
+
+                # identifier
+                my $ident = $1;
+                $bin .= encode_chars($ident);
+            }
             elsif ( $line =~ s/^\"//i ) {
 
                 # string
