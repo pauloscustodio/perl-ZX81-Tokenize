@@ -3,7 +3,7 @@ package ZX81::Tokenize;
 use Modern::Perl;
 use POSIX qw(frexp);
 
-our $VERSION = '0.005';
+our $VERSION = '0.006';
 
 use Exporter qw(import);
 
